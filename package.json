@@ -1,0 +1,21 @@
+{
+  "name": "simple-builder",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run watch & serve dist/",
+    "build": "node build.js",
+    "watch": "node build.js --watch"
+  },
+  "author": "tgroshon",
+  "dependencies": {
+    "fs-extra": "^11.0.0",
+    "glob": "^8.0.3",
+    "handlebars": "^4.7.7",
+    "lodash.debounce": "^4.0.8",
+    "minimatch": "^5.1.1",
+    "minimist": "^1.2.7"
+  },
+  "devDependencies": {
+    "serve": "^14.1.2"
+  }
+}
