@@ -7,30 +7,38 @@ const minimatch = require("minimatch"); // glob matching
 const minimist = require("minimist"); // CLI args
 const debounce = require("lodash.debounce");
 
-const OUT_DIR = "dist";
-const IN_DIR = "example";
+const HELP_MSG = `SIMPLE SITE BUILDER
 
-// Templatable directories
-const PARTIALS_DIR = path.join(IN_DIR, "partials");
-const PAGES_DIR = path.join(IN_DIR, "pages");
+Usage:
+  simple-build <dir> [options]
 
-// Static Directories
-const CSS_DIR = "css";
-const IMG_DIR = "img";
-const FONTS_DIR = "fonts";
-const JS_DIR = "js";
-
-const STATIC_DIRS = [CSS_DIR, IMG_DIR, FONTS_DIR, JS_DIR];
-
-Handlebars.registerHelper("ifEq", function (v1, v2, options) {
-  if (v1 === v2) {
-    return options.fn(this);
-  }
-  return options.inverse(this);
-});
+Options:
+  -h,--help    This help message
+  -o,--out     Specify 'out' directory; default 'dist'
+  -c,--clean   Remove the 'out' directory before build
+`;
 
 // Where the magic happens
 async function main() {
+  const cliArgs = minimist(process.argv);
+
+  const IN_DIR = cliArgs._[2];
+  const OUT_DIR = cliArgs.o || cliArgs.out || "dist";
+
+  if (cliArgs.h || cliArgs.help) {
+    console.log(HELP_MSG);
+    process.exit(0);
+  }
+
+  if (!IN_DIR) {
+    console.error('Must provide an "in" directory as 1st argument');
+    process.exit(1);
+  }
+
+  if (cliArgs.c || cliArgs.clean) {
+    fs.removeSync(OUT_DIR);
+  }
+
   const [allHandlebarsFiles, partialFiles, allFiles] = await Promise.all([
     new Promise((resolve, reject) => {
       glob(
@@ -71,9 +79,6 @@ async function main() {
     (filename) => !(hbfSet.has(filename) || pSet.has(filename))
   );
 
-  fs.removeSync(OUT_DIR);
-  fs.mkdirSync(OUT_DIR);
-
   const stripInDir = (n) => n.slice(IN_DIR.length + 1);
 
   /** Make all directories **/
@@ -98,6 +103,13 @@ async function main() {
     fs.copyFileSync(src, dest);
   });
 
+  Handlebars.registerHelper("ifEq", function (v1, v2, options) {
+    if (v1 === v2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+
   /** Register partials **/
   partialFiles.forEach((pFilePath) => {
     const dir = path.dirname(stripInDir(pFilePath));
@@ -119,6 +131,7 @@ async function main() {
       .join(OUT_DIR, stripInDir(hbfPath))
       .replace(".handlebars", "");
 
+    console.log("Compiling template:", hbfPath, "->", outPath);
     fs.writeFileSync(outPath, template({}));
   });
 
@@ -146,7 +159,6 @@ async function main() {
   //   fs.copy(path.join(JS_DIR, filename), path.join(OUT_DIR, JS_DIR, filename));
   // }
 
-  // const cliArgs = minimist(process.argv);
   // if (!cliArgs.watch) return; // only continue to watchers if '--watch' flag used
 
   // console.log("Watching...");
