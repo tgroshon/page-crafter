@@ -47,6 +47,7 @@ Options:
   -o,--out       Specify 'out' directory; default 'dist'
   -p,--params    Specify a parameter file to be used as template context
   -c,--clean     Remove the 'out' directory before build
+  -v,--version   Print version information
 `;
 
 /**
@@ -123,6 +124,11 @@ async function main() {
 
   if (cliArgs.h || cliArgs.help) {
     console.log(HELP_MSG);
+    process.exit(0);
+  }
+
+  if (cliArgs.v || cliArgs.version) {
+    console.log(require("../package.json").version);
     process.exit(0);
   }
 
