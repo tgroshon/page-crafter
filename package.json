@@ -1,11 +1,11 @@
 {
-  "name": "simple-builder",
+  "name": "page-crafter",
   "version": "1.0.0",
   "scripts": {
     "start": "npm run watch & serve dist/",
     "build": "node build.js example -o dist -c "
   },
-  "author": "tgroshon",
+  "author": "Tommy Grosong <tgroshon@pm.me>",
   "dependencies": {
     "fs-extra": "^11.0.0",
     "glob": "^8.0.3",

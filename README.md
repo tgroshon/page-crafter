@@ -1,4 +1,4 @@
-Simple Website Builder
+Page Crafter
 =======================
 
 Commands:
