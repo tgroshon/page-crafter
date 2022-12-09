@@ -11,6 +11,9 @@ const debounce = require("lodash.debounce");
 
 const HELP_MSG = `The Page Crafter
 
+A tool for simply templating content pages using handlebars templating syntax
+with partials support.
+
 Usage:
   pagecraft <dir> [options]
 
