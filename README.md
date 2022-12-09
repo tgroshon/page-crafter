@@ -4,6 +4,10 @@ Page Crafter
 A tool for simply templating content pages using handlebars templating syntax
 with partials support.
 
+## Installation
+
+    npm install -g page-crafter
+
 ## Usage
 
     pagecraft <dir> [options]
