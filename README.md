@@ -20,7 +20,7 @@ All other files will be copied as-is to the output directory.
 ## Options
 
 | option         |  Description |
-----------------------------------------
+|---------------------|---------|
 |  -h,--help         | help message |
 |  -o,--out          | Specify 'out' directory; default 'dist' |
 |  -p,--params       | Specify a YAML parameter file to be used as template context |
