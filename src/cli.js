@@ -18,11 +18,14 @@ Usage:
   pagecraft <dir> [options]
 
 Options:
-  -h,--help    This help message
-  -o,--out     Specify 'out' directory; default 'dist'
-  -c,--clean   Remove the 'out' directory before build
+  -h,--help      This help message
+  -o,--out       Specify 'out' directory; default 'dist'
+  -c,--clean     Remove the 'out' directory before build
 `;
 
+/**
+ * Select all the files that we care about
+ */
 async function findAllFiles(baseDir) {
   const [allHandlebarsFiles, partialFiles, allFiles] = await Promise.all([
     new Promise((resolve, reject) => {
@@ -66,6 +69,14 @@ async function findAllFiles(baseDir) {
 
   return { partialFiles, staticFiles, allFiles, handlebarsTemplateFiles };
 }
+
+/**
+ * Helper to cross-platform normalize directory names with trailing or no trailing separator.
+ *
+ * Example:
+ *   normalizeInDir('dir') === 'dir'
+ *   normalizeInDir('dir/') === 'dir'
+ */
 const normalizeInDir = (dirName) => {
   const dirPieces = dirName.split(path.sep);
   if (dirPieces[dirPieces.length - 1] === "") {
@@ -75,7 +86,9 @@ const normalizeInDir = (dirName) => {
   return dirPieces.join(path.sep);
 };
 
-// Where the magic happens
+/**
+ * Main entrypoint; Where the magic happens
+ */
 async function main() {
   const cliArgs = minimist(process.argv);
 
