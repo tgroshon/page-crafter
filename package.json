@@ -5,6 +5,7 @@
   "bin": {
     "pagecraft": "./src/cli.js"
   },
+  "license": "MIT",
   "scripts": {
     "start": "npm run build && serve dist/",
     "build": "node src/cli.js example -o dist -c -p example-params.yml"
