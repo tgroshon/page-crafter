@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const path = require("path");
 
 const fs = require("fs-extra"); // Filesystem help
@@ -17,6 +19,58 @@ Options:
   -o,--out     Specify 'out' directory; default 'dist'
   -c,--clean   Remove the 'out' directory before build
 `;
+
+async function findAllFiles(baseDir) {
+  const [allHandlebarsFiles, partialFiles, allFiles] = await Promise.all([
+    new Promise((resolve, reject) => {
+      glob(
+        path.join(baseDir, "**", "*.handlebars*"),
+        { nodir: true },
+        (err, files) => {
+          if (err) return reject(err);
+          resolve(files);
+        }
+      );
+    }),
+    new Promise((resolve, reject) => {
+      glob(
+        path.join(baseDir, "**", "_*handlebars"),
+        { nodir: true },
+        (err, files) => {
+          if (err) return reject(err);
+          resolve(files);
+        }
+      );
+    }),
+    new Promise((resolve, reject) => {
+      glob(path.join(baseDir, "**", "*"), { nodir: true }, (err, files) => {
+        if (err) return reject(err);
+        resolve(files);
+      });
+    }),
+  ]);
+
+  const hbfSet = new Set(allHandlebarsFiles);
+  const pSet = new Set(partialFiles);
+
+  const handlebarsTemplateFiles = allHandlebarsFiles.filter(
+    (f) => !pSet.has(f)
+  );
+
+  const staticFiles = allFiles.filter(
+    (filename) => !(hbfSet.has(filename) || pSet.has(filename))
+  );
+
+  return { partialFiles, staticFiles, allFiles, handlebarsTemplateFiles };
+}
+const normalizeInDir = (dirName) => {
+  const dirPieces = dirName.split(path.sep);
+  if (dirPieces[dirPieces.length - 1] === "") {
+    dirPieces.pop();
+  }
+
+  return dirPieces.join(path.sep);
+};
 
 // Where the magic happens
 async function main() {
@@ -39,55 +93,20 @@ async function main() {
     fs.removeSync(OUT_DIR);
   }
 
-  const [allHandlebarsFiles, partialFiles, allFiles] = await Promise.all([
-    new Promise((resolve, reject) => {
-      glob(
-        path.join(IN_DIR, "**", "*.handlebars*"),
-        { nodir: true },
-        (err, files) => {
-          if (err) return reject(err);
-          resolve(files);
-        }
-      );
-    }),
-    new Promise((resolve, reject) => {
-      glob(
-        path.join(IN_DIR, "**", "_*handlebars"),
-        { nodir: true },
-        (err, files) => {
-          if (err) return reject(err);
-          resolve(files);
-        }
-      );
-    }),
-    new Promise((resolve, reject) => {
-      glob(path.join(IN_DIR, "**", "*"), { nodir: true }, (err, files) => {
-        if (err) return reject(err);
-        resolve(files);
-      });
-    }),
-  ]);
+  const normalizedInDir = normalizeInDir(IN_DIR);
 
-  const hbfSet = new Set(allHandlebarsFiles);
-  const pSet = new Set(partialFiles);
+  const stripInDir = (n) => {
+    return n.slice(normalizedInDir.length + 1);
+  };
 
-  const handlebarsTemplateFiles = allHandlebarsFiles.filter(
-    (f) => !pSet.has(f)
-  );
-
-  const staticFiles = allFiles.filter(
-    (filename) => !(hbfSet.has(filename) || pSet.has(filename))
-  );
-
-  const stripInDir = (n) => n.slice(IN_DIR.length + 1);
+  const { partialFiles, staticFiles, allFiles, handlebarsTemplateFiles } =
+    await findAllFiles(normalizedInDir);
 
   /** Make all directories **/
   const dirs = Array.from(
     allFiles.reduce((s, filename) => {
       const relativeDirname = path.dirname(stripInDir(filename));
-      if (relativeDirname != ".") {
-        s.add(relativeDirname);
-      }
+      s.add(relativeDirname);
       return s;
     }, new Set())
   );
@@ -103,6 +122,7 @@ async function main() {
     fs.copyFileSync(src, dest);
   });
 
+  /** Add basic helper **/
   Handlebars.registerHelper("ifEq", function (v1, v2, options) {
     if (v1 === v2) {
       return options.fn(this);
@@ -115,10 +135,10 @@ async function main() {
     const dir = path.dirname(stripInDir(pFilePath));
     const ext = path.extname(pFilePath);
     const name = path
-      .basename(pFilePath)
+      .basename(pFilePath, ext)
       .slice(1 /* removes leading underscore */);
 
-    const partialName = `${dir}/${name.slice(0, -ext.length)}`;
+    const partialName = `${dir}/${name}`;
     console.log("Registering partial:", partialName);
 
     Handlebars.registerPartial(partialName, fs.readFileSync(pFilePath, "utf8"));
