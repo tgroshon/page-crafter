@@ -5,7 +5,6 @@ const path = require("path");
 const fs = require("fs-extra"); // Filesystem help
 const Handlebars = require("handlebars"); // Templates
 const glob = require("glob"); // glob file selecting
-const minimatch = require("minimatch"); // glob matching
 const minimist = require("minimist"); // CLI args
 const debounce = require("lodash.debounce");
 
