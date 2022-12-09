@@ -1,6 +1,7 @@
 ---
 phone: 555-555-5555
 prettyPhone: '(555) 555-5555'
+email: painterdudes@example.org
 sitename: PainterDudes
 staff:
   - Bob

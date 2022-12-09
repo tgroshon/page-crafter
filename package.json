@@ -6,8 +6,8 @@
     "pagecraft": "./src/cli.js"
   },
   "scripts": {
-    "start": "npm run watch & serve dist/",
-    "build": "node src/cli.js example -o dist -c "
+    "start": "npm run build && serve dist/",
+    "build": "node src/cli.js example -o dist -c -p example-params.yml"
   },
   "dependencies": {
     "fs-extra": "^11.0.0",

@@ -1,60 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        {{> partials/_header.html title="PainterDudes | Home" }}
-    </head>
-    <body class="body">
-        {{> partials/_navbar.html active='contact' }}
-        {{> partials/_jumbotron.html page-title="Contact Us"}}
+  <head>
+    {{> partials/_header.html title="PainterDudes | Home" }}
+  </head>
+  <body class="body">
+    {{> partials/_navbar.html active='contact' }}
+    {{> partials/_jumbotron.html page-title="Contact Us"}}
 
-        <div class="container contact-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3>All Offices</h3>
-                            <address>
-                                <abbr title="Phone">P:</abbr> <a href="tel:{{phone}}">{{prettyPhone}}</a>
-                                <abbr title="Email">Em:</abbr> <a id="mailto-link" href="mailto:info@painterbros.com" target="_top">info@painterbros.com</a>
-                            </address>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="locations.html">More locations info</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h4>Contact us today</h4>
-                    <div id="success-alert" class="alert alert-success" style="display: none;" role="alert">
-                        Your form has submitted! We will contact you shortly.
-                    </div>
-                    <div id="error-alert" class="alert alert-danger" style="display: none;" role="alert">
-                        An error occurred somewhere on the internet! <strong>Sorry!</strong> Please email us at
-                        <a id="mailto-link" href="mailto:info@painterbros.com" target="_top">info@painterbros.com</a>
-                        with your details and he will get back to you forthwith.
-                    </div>
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name-input">Name:</label>
-                            <input type="text" id="name-input" class="form-control" placeholder="name here..." />
-                        </div>
-                        <div class="form-group">
-                            <label for="email-input">Email:</label>
-                            <input type="email" id="email-input" class="form-control" placeholder="email here..."/>
-                        </div>
-                        <div class="form-group">
-                            <label for="description-input">How can we help you?</label>
-                            <textarea id="description-input" class="form-control" rows="3" placeholder="tell us..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                </div>
+    <div class="container contact-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>All Offices</h3>
+              <address>
+                <abbr title="Phone">P:</abbr> <a href="tel:{{phone}}">{{prettyPhone}}</a>
+                <abbr title="Email">Em:</abbr> <a id="mailto-link" href="mailto:{{email}}" target="_top">{{email}}</a>
+              </address>
             </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <a href="locations.html">More locations info</a>
+            </div>
+          </div>
         </div>
-        {{> partials/_footer.html }}
-        <script src="js/form.js"></script>
-    </body>
+        <div class="col-md-6">
+          <h4>Contact us today</h4>
+          <div id="success-alert" class="alert alert-success" style="display: none;" role="alert">
+            Your form has submitted! We will contact you shortly.
+          </div>
+          <div id="error-alert" class="alert alert-danger" style="display: none;" role="alert">
+            An error occurred somewhere on the internet! <strong>Sorry!</strong> Please email us at
+            <a id="mailto-link" href="mailto:{{email}}" target="_top">{{email}}</a>
+            with your details and he will get back to you forthwith.
+          </div>
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name-input">Name:</label>
+              <input type="text" id="name-input" class="form-control" placeholder="name here..." />
+            </div>
+            <div class="form-group">
+              <label for="email-input">Email:</label>
+              <input type="email" id="email-input" class="form-control" placeholder="email here..."/>
+            </div>
+            <div class="form-group">
+              <label for="description-input">How can we help you?</label>
+              <textarea id="description-input" class="form-control" rows="3" placeholder="tell us..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {{> partials/_footer.html }}
+  </body>
 </html>

@@ -1,45 +1,45 @@
 <div class="footer">
-    <div class="container-fluid">
-        <div class="row">
-                <div class="index-wrapper">
-                    <div class="footer-section left">
-                        &copy; PainterDudes. All rights reserved.
-                    </div>
-                    <div class="footer-section middle">
-                        <h2>PainterDudes</h2>
-                        <div class="address">
-                            <address>
-                                <abbr title="Phone">P:</abbr><a href="tel:{{phone}}">{{prettyPhone}}</a>
-                                <abbr title="Email">Em:</abbr><a id="mailto-link" href="mailto:info@painterbros.com" target="_top">info@painterbros.com</a>
-                            </address>
-                        </div>
-                        <div class="social-icons">
-                            <a href="tel:{{phone}}">
-                                <i class="fa fa-phone"></i>
-                            </a>
-                            <a id="mailto-link" href="mailto:info@painterbros.com" target="_top">
-                                <i class="fa fa-envelope"></i>
-                            </a>
-                            {{> partials/_social-icons.html }}
-                        </div>
-                    </div>
-                    <div class="footer-section right">
-                        <h3>Hours</h3>
-                        <p>
-                            Mon - Fri: 7:00 AM - 7:00 PM<br>
-                            Weekends:  By appointment
-                        </p>
-                    </div>
-                </div>
-            </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="index-wrapper">
+        <div class="footer-section left">
+          &copy; PainterDudes. All rights reserved.
         </div>
-    </div>
-    <div class="container-fluid post-footer">
-        <div class="row">
-            <div class="vertical-spacer"></div>
-            <p>&copy; PainterDudes. All rights reserved.</p>
+        <div class="footer-section middle">
+          <h2>PainterDudes</h2>
+          <div class="address">
+            <address>
+              <abbr title="Phone">P:</abbr><a href="tel:{{phone}}">{{prettyPhone}}</a>
+              <abbr title="Email">Em:</abbr><a id="mailto-link" href="mailto:{{email}}" target="_top">{{email}}</a>
+            </address>
+          </div>
+          <div class="social-icons">
+            <a href="tel:{{phone}}">
+              <i class="fa fa-phone"></i>
+            </a>
+            <a id="mailto-link" href="mailto:{{email}}" target="_top">
+              <i class="fa fa-envelope"></i>
+            </a>
+            {{> partials/_social-icons.html }}
+          </div>
         </div>
+        <div class="footer-section right">
+          <h3>Hours</h3>
+          <p>
+            Mon - Fri: 7:00 AM - 7:00 PM<br>
+            Weekends:  By appointment
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+<div class="container-fluid post-footer">
+  <div class="row">
+    <div class="vertical-spacer"></div>
+    <p>&copy; PainterDudes. All rights reserved.</p>
+  </div>
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>

@@ -1,143 +1,143 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        {{> partials/_header.html title="PainterDudes | Gallery" }}
-        <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-        <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
-    </head>
+  <head>
+    {{> partials/_header.html title="PainterDudes | Gallery" }}
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
+  </head>
 
-    <body class="body">
+  <body class="body">
 
-        {{> partials/_navbar.html active='gallery' }}
-        {{> partials/_jumbotron.html page-title='Gallery'}}
+    {{> partials/_navbar.html active='gallery' }}
+    {{> partials/_jumbotron.html page-title='Gallery'}}
 
-        <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-        <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
-            <!-- The container for the modal slides -->
-            <div class="slides"></div>
-            <!-- Controls for the borderless lightbox -->
-            <h3 class="title"></h3>
-            <a class="prev">‹</a>
-            <a class="next">›</a>
-            <a class="close">×</a>
-            <a class="play-pause"></a>
-            <ol class="indicator"></ol>
-            <!-- The modal dialog, which will be used to wrap the lightbox content -->
-            <div class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title"></h4>
-                        </div>
-                        <div class="modal-body next"></div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default pull-left prev">
-                                <i class="glyphicon glyphicon-chevron-left"></i>
-                                Previous
-                            </button>
-                            <button type="button" class="btn btn-primary next">
-                                Next
-                                <i class="glyphicon glyphicon-chevron-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+    <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+    <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
+      <!-- The container for the modal slides -->
+      <div class="slides"></div>
+      <!-- Controls for the borderless lightbox -->
+      <h3 class="title"></h3>
+      <a class="prev">‹</a>
+      <a class="next">›</a>
+      <a class="close">×</a>
+      <a class="play-pause"></a>
+      <ol class="indicator"></ol>
+      <!-- The modal dialog, which will be used to wrap the lightbox content -->
+      <div class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" aria-hidden="true">&times;</button>
+              <h4 class="modal-title"></h4>
             </div>
+            <div class="modal-body next"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left prev">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Previous
+              </button>
+              <button type="button" class="btn btn-primary next">
+                Next
+                <i class="glyphicon glyphicon-chevron-right"></i>
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="container gallery-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>We Are Proud of Our Work!</h3>
-                    <p>
-                        We have worked and brainstormed with numerous customers on a wide variety of projects and can proudly say that we
-                        have the creativity and innovation to solve the question of how to brighten up your home or office space from
-                        performing simple color changes to extensive remodeling.
-                    </p>
-                        <img src="img/blue-room.jpg" alt="A blue room" class="img-thumbnail center-block" style="height: 350px" />
-                    </div>
-                    <div class="col-md-6">
-                        <div id="links">
-                            <a href="img/gallery/commercial-building.jpg" title="A Commercial Building" data-gallery>
-                                <img src="img/thumbnails/commercial-building-thumb.jpg" alt="A Commercial Building">
-                            </a>
-                            <a href="img/gallery/arched_ceiling.jpg" title="An Arched Ceiling" data-gallery>
-                                <img src="img/thumbnails/arched_ceiling-thumb.jpg" alt="An Arched Ceiling">
-                            </a>
-                            <a href="img/gallery/bf_column.jpg" title="Before and After: Column" data-gallery>
-                                <img src="img/thumbnails/bf_column-thumb.jpg" alt="Before and After Column">
-                            </a>
-                            <a href="img/gallery/bf_floor.jpg" title="Before and After: Floor" data-gallery>
-                                <img src="img/thumbnails/bf_floor-thumb.jpg" alt="Before and After: Floor">
-                            </a>
-                            <a href="img/gallery/bf_hallway.jpg" title="Before and After: Hallway" data-gallery>
-                                <img src="img/thumbnails/bf_hallway-thumb.jpg" alt="Before and After: Hallway">
-                            </a>
-                            <a href="img/gallery/bf_kitchen.jpg" title="Before and After: Kitchen" data-gallery>
-                                <img src="img/thumbnails/bf_kitchen-thumb.jpg" alt="Before and After: Kitchen">
-                            </a>
-                            <a href="img/gallery/bf_kitchen_cabinets.jpg" title="Before and After: Kitchen Cabinets" data-gallery>
-                                <img src="img/thumbnails/bf_kitchen_cabinets-thumb.jpg" alt="Before and After: Kitchen Cabinets">
-                            </a>
-                            <a href="img/gallery/bf_shelves_mantle.jpg" title="Before and After: Shelves and Mantle" data-gallery>
-                                <img src="img/thumbnails/bf_shelves_mantle-thumb.jpg" alt="Before and After: Shelves and Mantle">
-                            </a>
-                            <a href="img/gallery/entryway.jpg" title="Entryway" data-gallery>
-                                <img src="img/thumbnails/entryway-thumb.jpg" alt="Entryway">
-                            </a>
-                            <a href="img/gallery/striped_wall.jpg" title="Striped Color Wall" data-gallery>
-                                <img src="img/thumbnails/striped_wall-thumb.jpg" alt="Striped Color Wall">
-                            </a>
-                            <a href="img/gallery/solid_wall.jpg" title="Solid Color Wall" data-gallery>
-                                <img src="img/thumbnails/solid_wall-thumb.jpg" alt="Solid Color Wall">
-                            </a>
-                            <a href="img/gallery/exterior_multifloor.jpg" title="Exterior Multifloor House" data-gallery>
-                                <img src="img/thumbnails/exterior_multifloor-thumb.jpg" alt="Exterior Multifloor House">
-                            </a>
-                            <a href="img/gallery/exterior_craftsmen.jpg" title="Exterior Craftsman House" data-gallery>
-                                <img src="img/thumbnails/exterior_craftsmen-thumb.jpg" alt="Exterior Craftsman House">
-                            </a>
-                            <a href="img/gallery/exterior_garage.jpg" title="Exterior Garage" data-gallery>
-                                <img src="img/thumbnails/exterior_garage-thumb.jpg" alt="Exterior Garage">
-                            </a>
-                            <a href="img/gallery/exterior_door-2.jpg" title="Exterior Door" data-gallery>
-                                <img src="img/thumbnails/exterior_door-2-thumb.jpg" alt="Exterior Door">
-                            </a>
-                            <a href="img/gallery/exterior_door-3.jpg" title="Exterior Door" data-gallery>
-                                <img src="img/thumbnails/exterior_door-3-thumb.jpg" alt="Exterior Door">
-                            </a>
-                            <a href="img/gallery/exterior_door.jpg" title="Exterior Door" data-gallery>
-                                <img src="img/thumbnails/exterior_door-thumb.jpg" alt="Exterior Door">
-                            </a>
-                            <a href="img/gallery/fireplace.jpg" title="Fireplace" data-gallery>
-                                <img src="img/thumbnails/fireplace-thumb.jpg" alt="Fireplace">
-                            </a>
-                            <a href="img/gallery/kitchen.jpg" title="Full Kitchen" data-gallery>
-                                <img src="img/thumbnails/kitchen-thumb.jpg" alt="Full Kitchen">
-                            </a>
-                            <a href="img/gallery/moulding.jpg" title="Moulding" data-gallery>
-                                <img src="img/thumbnails/moulding-thumb.jpg" alt="Moulding">
-                            </a>
-                            <a href="img/gallery/wainscotting.jpg" title="Wainscoting" data-gallery>
-                                <img src="img/thumbnails/wainscotting-thumb.jpg" alt="Wainscoting">
-                            </a>
-                            <a href="img/gallery/progress_ec_fireplace.jpg" title="Fireplace Progress" data-gallery>
-                                <img src="img/thumbnails/progress_ec_fireplace-thumb.jpg" alt="Fireplace Progress">
-                            </a>
-                            <a href="img/gallery/finished_ec_fireplace.jpg" title="Finished Fireplace" data-gallery>
-                                <img src="img/thumbnails/finished_ec_fireplace-thumb.jpg" alt="Finished Fireplace">
-                            </a>
-                            <a href="img/gallery/mantle_closeup.jpg" title="Mantle Closeup" data-gallery>
-                                <img src="img/thumbnails/mantle_closeup-thumb.jpg" alt="Mantle">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="container gallery-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>We Are Proud of Our Work!</h3>
+          <p>
+            We have worked and brainstormed with numerous customers on a wide variety of projects and can proudly say that we
+            have the creativity and innovation to solve the question of how to brighten up your home or office space from
+            performing simple color changes to extensive remodeling.
+          </p>
+          <img src="img/blue-room.jpg" alt="A blue room" class="img-thumbnail center-block" style="height: 350px" />
+        </div>
+        <div class="col-md-6">
+          <div id="links">
+            <a href="img/gallery/commercial-building.jpg" title="A Commercial Building" data-gallery>
+              <img src="img/thumbnails/commercial-building-thumb.jpg" alt="A Commercial Building">
+            </a>
+            <a href="img/gallery/arched_ceiling.jpg" title="An Arched Ceiling" data-gallery>
+              <img src="img/thumbnails/arched_ceiling-thumb.jpg" alt="An Arched Ceiling">
+            </a>
+            <a href="img/gallery/bf_column.jpg" title="Before and After: Column" data-gallery>
+              <img src="img/thumbnails/bf_column-thumb.jpg" alt="Before and After Column">
+            </a>
+            <a href="img/gallery/bf_floor.jpg" title="Before and After: Floor" data-gallery>
+              <img src="img/thumbnails/bf_floor-thumb.jpg" alt="Before and After: Floor">
+            </a>
+            <a href="img/gallery/bf_hallway.jpg" title="Before and After: Hallway" data-gallery>
+              <img src="img/thumbnails/bf_hallway-thumb.jpg" alt="Before and After: Hallway">
+            </a>
+            <a href="img/gallery/bf_kitchen.jpg" title="Before and After: Kitchen" data-gallery>
+              <img src="img/thumbnails/bf_kitchen-thumb.jpg" alt="Before and After: Kitchen">
+            </a>
+            <a href="img/gallery/bf_kitchen_cabinets.jpg" title="Before and After: Kitchen Cabinets" data-gallery>
+              <img src="img/thumbnails/bf_kitchen_cabinets-thumb.jpg" alt="Before and After: Kitchen Cabinets">
+            </a>
+            <a href="img/gallery/bf_shelves_mantle.jpg" title="Before and After: Shelves and Mantle" data-gallery>
+              <img src="img/thumbnails/bf_shelves_mantle-thumb.jpg" alt="Before and After: Shelves and Mantle">
+            </a>
+            <a href="img/gallery/entryway.jpg" title="Entryway" data-gallery>
+              <img src="img/thumbnails/entryway-thumb.jpg" alt="Entryway">
+            </a>
+            <a href="img/gallery/striped_wall.jpg" title="Striped Color Wall" data-gallery>
+              <img src="img/thumbnails/striped_wall-thumb.jpg" alt="Striped Color Wall">
+            </a>
+            <a href="img/gallery/solid_wall.jpg" title="Solid Color Wall" data-gallery>
+              <img src="img/thumbnails/solid_wall-thumb.jpg" alt="Solid Color Wall">
+            </a>
+            <a href="img/gallery/exterior_multifloor.jpg" title="Exterior Multifloor House" data-gallery>
+              <img src="img/thumbnails/exterior_multifloor-thumb.jpg" alt="Exterior Multifloor House">
+            </a>
+            <a href="img/gallery/exterior_craftsmen.jpg" title="Exterior Craftsman House" data-gallery>
+              <img src="img/thumbnails/exterior_craftsmen-thumb.jpg" alt="Exterior Craftsman House">
+            </a>
+            <a href="img/gallery/exterior_garage.jpg" title="Exterior Garage" data-gallery>
+              <img src="img/thumbnails/exterior_garage-thumb.jpg" alt="Exterior Garage">
+            </a>
+            <a href="img/gallery/exterior_door-2.jpg" title="Exterior Door" data-gallery>
+              <img src="img/thumbnails/exterior_door-2-thumb.jpg" alt="Exterior Door">
+            </a>
+            <a href="img/gallery/exterior_door-3.jpg" title="Exterior Door" data-gallery>
+              <img src="img/thumbnails/exterior_door-3-thumb.jpg" alt="Exterior Door">
+            </a>
+            <a href="img/gallery/exterior_door.jpg" title="Exterior Door" data-gallery>
+              <img src="img/thumbnails/exterior_door-thumb.jpg" alt="Exterior Door">
+            </a>
+            <a href="img/gallery/fireplace.jpg" title="Fireplace" data-gallery>
+              <img src="img/thumbnails/fireplace-thumb.jpg" alt="Fireplace">
+            </a>
+            <a href="img/gallery/kitchen.jpg" title="Full Kitchen" data-gallery>
+              <img src="img/thumbnails/kitchen-thumb.jpg" alt="Full Kitchen">
+            </a>
+            <a href="img/gallery/moulding.jpg" title="Moulding" data-gallery>
+              <img src="img/thumbnails/moulding-thumb.jpg" alt="Moulding">
+            </a>
+            <a href="img/gallery/wainscotting.jpg" title="Wainscoting" data-gallery>
+              <img src="img/thumbnails/wainscotting-thumb.jpg" alt="Wainscoting">
+            </a>
+            <a href="img/gallery/progress_ec_fireplace.jpg" title="Fireplace Progress" data-gallery>
+              <img src="img/thumbnails/progress_ec_fireplace-thumb.jpg" alt="Fireplace Progress">
+            </a>
+            <a href="img/gallery/finished_ec_fireplace.jpg" title="Finished Fireplace" data-gallery>
+              <img src="img/thumbnails/finished_ec_fireplace-thumb.jpg" alt="Finished Fireplace">
+            </a>
+            <a href="img/gallery/mantle_closeup.jpg" title="Mantle Closeup" data-gallery>
+              <img src="img/thumbnails/mantle_closeup-thumb.jpg" alt="Mantle">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            {{> partials/_footer.html }}
-            <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-            <script src="js/bootstrap-image-gallery.min.js"></script>
-        </body>
+    {{> partials/_footer.html }}
+    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="js/bootstrap-image-gallery.min.js"></script>
+  </body>
 </html>

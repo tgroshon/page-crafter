@@ -128,15 +128,17 @@ h3 {
 
 /*****************************************************************/
 /*Header / Navbar Styles*/
-header.custom-nav {
+header {
   display: block;
 	position: fixed;
 	width: 100%;
 	z-index: 1000;
-  background-color: #F6A623;
+  background-color: #3097d1;
+  display: flex;
+  justify-content: center;
 }
 
-header.custom-nav a {
+header a {
   transition: all linear 0.1s;
 }
 
@@ -147,47 +149,34 @@ div.outter-flex-wrapper {
   width: 100%;
 }
 
-div.pre-header {
-  background-color: #3097d1;
+header nav {
   display: flex;
   justify-content: center;
 }
 
-div.pre-header img {
-  display: block;
-  min-height: 5em;
-  height: 8rem;
-  margin: 0 auto;
-}
-
-header.custom-nav nav {
-  display: flex;
-  justify-content: center;
-}
-
-header.custom-nav nav div.hamburger {
+header nav div.hamburger {
   display: none;
 }
 
-header.custom-nav nav div.nav-phone {
+header nav div.nav-phone {
   position: absolute;
   left: 0;
   margin-left: 1em;
 }
 
-header.custom-nav nav div.nav-phone a {
+header nav div.nav-phone a {
   color: white;
   font-weight: 200;
   font-size: 1.5em;
 }
 
-header.custom-nav nav div.nav-phone a:hover,
-header.custom-nav nav div.nav-phone a:focus {
+header nav div.nav-phone a:hover,
+header nav div.nav-phone a:focus {
   color: #293a46;
   text-decoration: none;
 }
 
-header.custom-nav nav > ul {
+header nav > ul {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -196,7 +185,7 @@ header.custom-nav nav > ul {
 	padding: 0;
 }
 
-header.custom-nav nav > ul > li {
+header nav > ul > li {
 	flex: 0 1 auto;
 	margin: 0;
 	padding: 0;
@@ -204,7 +193,7 @@ header.custom-nav nav > ul > li {
 	transition: all linear 0.1s;
 }
 
-header.custom-nav nav ul li a {
+header nav ul li a {
 	align-items: flex-start;
 	color: #fff;
 	display: flex;
@@ -217,7 +206,7 @@ header.custom-nav nav ul li a {
 	text-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
 
-header.custom-nav nav > ul > li a + div {
+header nav > ul > li a + div {
   display: none;
   position: absolute;
   background-color: #F6A623;
@@ -226,11 +215,11 @@ header.custom-nav nav > ul > li a + div {
   transition: all linear 0.1s;
 }
 
-header.custom-nav nav > ul > li:hover a + div {
+header nav > ul > li:hover a + div {
   display: block;
 }
 
-header.custom-nav nav > ul > li a + div > ul {
+header nav > ul > li a + div > ul {
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -240,15 +229,15 @@ header.custom-nav nav > ul > li a + div > ul {
   font-weight: 200;
 }
 
-header.custom-nav nav > ul > li.active > a,
-header.custom-nav nav > ul > li div ul > li.active > a,
-header.custom-nav div.mobile-menu ul > li.active > a,
-header.custom-nav div.mobile-menu ul > li div ul > li.active > a {
+header nav > ul > li.active > a,
+header nav > ul > li div ul > li.active > a,
+header div.mobile-menu ul > li.active > a,
+header div.mobile-menu ul > li div ul > li.active > a {
   color: #293a46;
 }
 
-header.custom-nav nav ul li a:hover,
-header.custom-nav nav ul li a:focus {
+header nav ul li a:hover,
+header nav ul li a:focus {
   color: #293a46;
   text-decoration: none;
 }
@@ -305,25 +294,25 @@ div.header-spacer {
 }
 
 @media (max-width: 1338px) {
-  header.custom-nav nav div.nav-phone {
+  header nav div.nav-phone {
     margin-top: .5em;
   }
 
-  header.custom-nav nav div.nav-phone a {
+  header nav div.nav-phone a {
     font-size: 1em;
   }
 }
 
 @media (max-width: 1137px) {
-  header.custom-nav nav div.nav-phone {
+  header nav div.nav-phone {
     margin-top: .3em;
   }
 
-  header.custom-nav nav div.nav-phone a {
+  header nav div.nav-phone a {
     font-size: .75em;
   }
 
-  header.custom-nav nav > ul > li > a {
+  header nav > ul > li > a {
   	font-size: .75em;
   	padding: 1rem 1.5rem;
   }
@@ -335,11 +324,11 @@ div.header-spacer {
     display: none;
   }
 
-  header.custom-nav nav {
+  header nav {
     justify-content: flex-start;
   }
 
-  header.custom-nav nav div.hamburger {
+  header nav div.hamburger {
     display: block;
     margin-left: 10px;
     font-size: 1.5em;
@@ -347,7 +336,7 @@ div.header-spacer {
     cursor: pointer;
   }
 
-  header.custom-nav nav ul {
+  header nav ul {
     display: none;
   }
 
