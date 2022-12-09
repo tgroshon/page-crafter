@@ -1,11 +1,14 @@
 {
   "name": "page-crafter",
   "version": "1.0.0",
+  "author": "Tommy Grosong <tgroshon@pm.me>",
+  "bin": {
+    "pagecraft": "./src/cli.js"
+  },
   "scripts": {
     "start": "npm run watch & serve dist/",
-    "build": "node build.js example -o dist -c "
+    "build": "node src/cli.js example -o dist -c "
   },
-  "author": "Tommy Grosong <tgroshon@pm.me>",
   "dependencies": {
     "fs-extra": "^11.0.0",
     "glob": "^8.0.3",
