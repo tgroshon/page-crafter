@@ -2,6 +2,7 @@
 
 const path = require("path");
 
+const yaml = require("js-yaml");
 const fs = require("fs-extra"); // Filesystem help
 const Handlebars = require("handlebars"); // Templates
 const glob = require("glob"); // glob file selecting
@@ -19,6 +20,7 @@ Usage:
 Options:
   -h,--help      This help message
   -o,--out       Specify 'out' directory; default 'dist'
+  -p,--params    Specify a parameter file to be used as template context
   -c,--clean     Remove the 'out' directory before build
 `;
 
@@ -104,6 +106,20 @@ async function main() {
     process.exit(1);
   }
 
+  let contextData = {};
+  const paramFileName = cliArgs.p || cliArgs.params;
+  if (typeof paramFileName === "string" && paramFileName !== "") {
+    try {
+      contextData = yaml.load(fs.readFileSync(paramFileName, "utf8"));
+    } catch (e) {
+      console.error(
+        `Error while parsing parameter file ${paramFileName} as YAML`,
+        e
+      );
+      process.exit(1);
+    }
+  }
+
   if (cliArgs.c || cliArgs.clean) {
     fs.removeSync(OUT_DIR);
   }
@@ -165,7 +181,7 @@ async function main() {
       .replace(".handlebars", "");
 
     console.log("Compiling template:", hbfPath, "->", outPath);
-    fs.writeFileSync(outPath, template({}));
+    fs.writeFileSync(outPath, template(contextData));
   });
 
   /** WATCHING **/
