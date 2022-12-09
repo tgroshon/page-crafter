@@ -134,9 +134,7 @@ async function main() {
   partialFiles.forEach((pFilePath) => {
     const dir = path.dirname(stripInDir(pFilePath));
     const ext = path.extname(pFilePath);
-    const name = path
-      .basename(pFilePath, ext)
-      .slice(1 /* removes leading underscore */);
+    const name = path.basename(pFilePath, ext);
 
     const partialName = `${dir}/${name}`;
     console.log("Registering partial:", partialName);

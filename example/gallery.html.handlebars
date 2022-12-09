@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {{> partials/header.html title="Painter Bros | Gallery" }}
+        {{> partials/_header.html title="Painter Bros | Gallery" }}
         <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
         <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
     </head>
 
     <body class="body">
 
-        {{> partials/navbar.html active='gallery' }}
-        {{> partials/jumbotron.html page-title='Gallery'}}
+        {{> partials/_navbar.html active='gallery' }}
+        {{> partials/_jumbotron.html page-title='Gallery'}}
 
         <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
         <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
@@ -136,7 +136,7 @@
                 </div>
             </div>
 
-            {{> partials/footer.html }}
+            {{> partials/_footer.html }}
             <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
             <script src="js/bootstrap-image-gallery.min.js"></script>
         </body>

@@ -2,13 +2,13 @@
 <html>
 
     <head>
-        {{> partials/header.html title="Painter Bros | About Us" }}
+        {{> partials/_header.html title="Painter Bros | About Us" }}
     </head>
 
     <body class="body">
 
-        {{> partials/navbar.html active='about-us' }}
-        {{> partials/jumbotron.html page-title='About Us'}}
+        {{> partials/_navbar.html active='about-us' }}
+        {{> partials/_jumbotron.html page-title='About Us'}}
 
         <div class="container about-us-body">
             <div class="row">
@@ -30,7 +30,7 @@
                             Find us at these social destinations!
                         </p>
                         <div class="social-icons">
-                            {{> partials/social-icons.html}}
+                            {{> partials/_social-icons.html}}
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <hr />
-            {{> partials/badges.html }}
+            {{> partials/_badges.html }}
             <hr />
             <div class="row">
                 <div class="col-md-6">
@@ -102,6 +102,6 @@
             </div>
         </div>
 
-        {{> partials/footer.html }}
+        {{> partials/_footer.html }}
     </body>
 </html>
