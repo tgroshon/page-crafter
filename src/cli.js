@@ -9,10 +9,10 @@ const minimatch = require("minimatch"); // glob matching
 const minimist = require("minimist"); // CLI args
 const debounce = require("lodash.debounce");
 
-const HELP_MSG = `SIMPLE SITE BUILDER
+const HELP_MSG = `The Page Crafter
 
 Usage:
-  simple-build <dir> [options]
+  pagecraft <dir> [options]
 
 Options:
   -h,--help    This help message
