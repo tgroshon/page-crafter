@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {{> partials/_header.html title="Painter Bros | Home" }}
+        {{> partials/_header.html title="PainterDudes | Home" }}
     </head>
     <body class="body">
         {{> partials/_navbar.html active='contact' }}
@@ -14,7 +14,7 @@
                         <div class="col-md-12">
                             <h3>All Offices</h3>
                             <address>
-                                <abbr title="Phone">P:</abbr> <a href="tel:801-857-5971">(801) 857-5971</a>
+                                <abbr title="Phone">P:</abbr> <a href="tel:{{phone}}">{{prettyPhone}}</a>
                                 <abbr title="Email">Em:</abbr> <a id="mailto-link" href="mailto:info@painterbros.com" target="_top">info@painterbros.com</a>
                             </address>
                         </div>
